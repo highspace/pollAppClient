@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFF',
     },
     userImage: {
-        borderColor: mainColor,
+        borderColor: '#FFF',
         borderRadius: 85,
         borderWidth: 3,
         height: 170,
