@@ -9,6 +9,7 @@ export default class App extends React.Component {
     super(props)
     this.state ={
       isLoadingComplete: false,
+      signInRequired: false,    //SET TO FALSE TO AVOID LOGIN FOR TESTING PURPOSES
       signedIn: false,
       name: "",
       photoUrl: ""
@@ -17,27 +18,27 @@ export default class App extends React.Component {
   
   // Google Sign in handler
   signInWithGoogle = async () => {
-    try{
-        const result = await Google.logInAsync({
-            androidClientId: '945962750945-rept5ka0f9lj9upcq7l0cp5udjv2q25p.apps.googleusercontent.com',
-            iosClientId:'945962750945-miqolskevjp8en0ked5v7ok6p14jathu.apps.googleusercontent.com',
-            scopes: ['profile', 'email'],
-        });
+    try {
+      const result = await Google.logInAsync({
+        androidClientId: '945962750945-rept5ka0f9lj9upcq7l0cp5udjv2q25p.apps.googleusercontent.com',
+        iosClientId: '945962750945-miqolskevjp8en0ked5v7ok6p14jathu.apps.googleusercontent.com',
+        scopes: ['profile', 'email'],
+      });
 
-        if (result.type == 'success'){
-          //----------- Set the user state ----------
-          this.setState({
-            isLoadingComplete: true,
-            signedIn: true,
-            name: result.user.name,
-            photoUrl: result.user.photoUrl,
-          })
-          return result.accessToken;
-        } else {
-            return {cancelled: true};
-        }
-    } catch(e) {
-        return {error: true};
+      if (result.type == 'success') {
+        //----------- Set the user state ----------
+        this.setState({
+          isLoadingComplete: true,
+          signedIn: true,
+          name: result.user.name,
+          photoUrl: result.user.photoUrl,
+        })
+        return result.accessToken;
+      } else {
+        return { cancelled: true };
+      }
+    } catch (e) {
+      return { error: true };
     }
   }
 
@@ -51,15 +52,22 @@ export default class App extends React.Component {
         />
       );
     } else {
-      return (
-        <View style={styles.container}>
-          {this.state.signedIn ? (
-            <AppNavigator />
-          ) : (
-            <SignIn signInWithGoogle={this.signInWithGoogle} />
-          )}
-        </View>
-      );
+
+      if (!this.state.signInRequired || this.state.signedIn) {
+        return (
+          <View style={styles.container}>
+          <AppNavigator />
+          </View>
+        );
+      }
+
+      else {
+        return (
+          <View style={styles.container}>
+          <SignIn signInWithGoogle={this.signInWithGoogle} />
+          </View>
+        )
+      }
     }
   }
 
