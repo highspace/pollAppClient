@@ -41,7 +41,7 @@ LinksStack.navigationOptions = {
 };
 
 const ProfileStack = createStackNavigator({
-  Settings: SettingsScreen,
+  Profile: ProfileScreen,
 });
 
 ProfileStack.navigationOptions = {
