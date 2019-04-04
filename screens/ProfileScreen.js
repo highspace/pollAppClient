@@ -28,7 +28,7 @@ export default class ProfileScreen extends React.Component {
 
                         </View>
 
-                        <Text style = {styles.username}>Username Here</Text>
+                        <Text style = {styles.username}>Username</Text>
 
                     </View>
                 </Image>
@@ -36,7 +36,7 @@ export default class ProfileScreen extends React.Component {
                //bar
                 <View style = {styles.bar}>
                     <View style = {[styles.barItem, styles.barseparator]}>
-                        <Text style={styles.barTop}> Liked Polls </Text>
+                        <Text style={styles.barTop}>LikedPolls</Text>
                         //<Text style={styles.barBottom}> Liked Polls </Text>
                     </View>
                 </View>
