@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Image,
-  ScrollView,
   StyleSheet,
   Text,
   View,
@@ -16,7 +15,7 @@ export default class ProfileScreen extends React.Component {
     };
     render() {
         return (
-          <ScrollView style={styles.container}>
+          <View style={styles.container}>
                 //header
                 <View style = {styles.header}>
                     <Image style = {styles.headerBackgroundImage} source={require('../assets/images/backgroundpic.png')}>
@@ -36,7 +35,7 @@ export default class ProfileScreen extends React.Component {
                     </View>
                 </View>
 
-          </ScrollView>
+          </View>
         );
     }
 }
