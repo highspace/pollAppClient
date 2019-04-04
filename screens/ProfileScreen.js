@@ -32,7 +32,7 @@ export default class ProfileScreen extends React.Component {
 
                     </View>
 
-                    <Text style = {styles.name}> Username Here</Text>
+                    <Text style = {styles.username}>Username Here</Text>
 
                 </View>
             </Image>
@@ -77,12 +77,11 @@ const styles = StyleSheet.create({
         borderColor: '#FFF',
         borderWidth: 4,
     },
-    name: {
+    username: {
         marginTop: 20,
         fontSize: 16,
         color: '#FFF',
         fontWeight: 'bold',
     }
-
 
 });
