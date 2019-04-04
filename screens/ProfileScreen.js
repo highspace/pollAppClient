@@ -21,37 +21,9 @@ export default class ProfileScreen extends React.Component {
                       <View style={styles.body}>
                         <View style={styles.bodyContent}>
                           <Text style={styles.username}>Username</Text>
-
-//                          <TouchableOpacity style={styles.buttonContainer}>
-//                            <Text>Opcion 1</Text>
-//                          </TouchableOpacity>
-//                          <TouchableOpacity style={styles.buttonContainer}>
-//                            <Text>Opcion 2</Text>
-//                          </TouchableOpacity>
                         </View>
                     </View>
             </View>
-//          <View style={styles.container}>
-//                //header
-//                <View style = {styles.header}>
-//                    <Image style = {styles.headerBackgroundImage} source={require('../assets/images/backgroundpic.png')}>
-//                         <View style = {styles.profilepicWrap}>
-//                                <Image style = {styles.profilepic} source = {require('../assets/images/profileicon.png')}/>
-//                         </View>
-//
-//                         <Text style = {styles.username}>Username</Text>
-//                    </Image>
-//                </View>
-//
-//                //bar
-//                <View style = {styles.bar}>
-//                    <View style = {[styles.barItem, styles.barseparator]}>
-//                         <Text style={styles.barTop}>Liked Polls</Text>
-//                            //<Text style={styles.barBottom}> Liked Polls </Text>
-//                    </View>
-//                </View>
-//
-//          </View>
         );
     }
 }
