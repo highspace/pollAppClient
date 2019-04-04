@@ -18,13 +18,13 @@ export default class ProfileScreen extends React.Component {
         return (
           <ScrollView style={styles.container}>
               //<View style = {styles.container}>
-                //<Text> User Profile </Text>
+                <Text>UserProfile</Text>
 
                 //header
                 <Image style = {styles.headerBackgroundImage} source={require('../assets/images/backgroundpic.png')}>
                     <View style = {styles.header}>
                         <View style = {styles.profilepicWrap}>
-                            <Image style = {styles.profilepic} source = {require('../assets/images/profileicon.png')} />
+                            <Image style = {styles.profilepic} source = {require('../assets/images/profileicon.png')}> </Image>
 
                         </View>
 
