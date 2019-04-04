@@ -17,8 +17,7 @@ export default class ProfileScreen extends React.Component {
     render() {
         return (
           <ScrollView style={styles.container}>
-              //<View style = {styles.container}>
-                <Text>UserProfile</Text>
+                //<Text>UserProfile</Text>
 
                 //header
                 <Text>
@@ -42,8 +41,6 @@ export default class ProfileScreen extends React.Component {
                     </View>
                 </View>
 
-
-              //</View>
               </Text>
           </ScrollView>
         );
