@@ -15,27 +15,43 @@ export default class ProfileScreen extends React.Component {
     };
     render() {
         return (
-          <View style={styles.container}>
-                //header
-                <View style = {styles.header}>
-                    <Image style = {styles.headerBackgroundImage} source={require('../assets/images/backgroundpic.png')}>
-                         <View style = {styles.profilepicWrap}>
-                                <Image style = {styles.profilepic} source = {require('../assets/images/profileicon.png')}/>
-                         </View>
+            <View style={styles.container}>
+                      <View style={styles.header}></View>
+                      <Image style={styles.profilepic} source={require('../assets/images/profileicon.png')}/>
+                      <View style={styles.body}>
+                        <View style={styles.bodyContent}>
+                          <Text style={styles.username}>Username</Text>
 
-                         <Text style = {styles.username}>Username</Text>
-                    </Image>
-                </View>
-
-                //bar
-                <View style = {styles.bar}>
-                    <View style = {[styles.barItem, styles.barseparator]}>
-                         <Text style={styles.barTop}>Liked Polls</Text>
-                            //<Text style={styles.barBottom}> Liked Polls </Text>
+//                          <TouchableOpacity style={styles.buttonContainer}>
+//                            <Text>Opcion 1</Text>
+//                          </TouchableOpacity>
+//                          <TouchableOpacity style={styles.buttonContainer}>
+//                            <Text>Opcion 2</Text>
+//                          </TouchableOpacity>
+                        </View>
                     </View>
-                </View>
-
-          </View>
+            </View>
+//          <View style={styles.container}>
+//                //header
+//                <View style = {styles.header}>
+//                    <Image style = {styles.headerBackgroundImage} source={require('../assets/images/backgroundpic.png')}>
+//                         <View style = {styles.profilepicWrap}>
+//                                <Image style = {styles.profilepic} source = {require('../assets/images/profileicon.png')}/>
+//                         </View>
+//
+//                         <Text style = {styles.username}>Username</Text>
+//                    </Image>
+//                </View>
+//
+//                //bar
+//                <View style = {styles.bar}>
+//                    <View style = {[styles.barItem, styles.barseparator]}>
+//                         <Text style={styles.barTop}>Liked Polls</Text>
+//                            //<Text style={styles.barBottom}> Liked Polls </Text>
+//                    </View>
+//                </View>
+//
+//          </View>
         );
     }
 }
@@ -46,17 +62,26 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFF',
         paddingTop: 15,
     },
+    body: {
+        marginTop: 40,
+    },
+    bodyContent: {
+        flex: 1,
+        alignItems: 'center',
+        padding: 30,
+    },
     headerBackgroundImage: {
         flex: 1,
         width: null,
         alignSelf: 'stretch',
     },
     header: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 20,
+        //flex: 1,
+        //alignItems: 'center',
+        //justifyContent: 'center',
+        //padding: 20,
         backgroundColor: '#FFF',
+        height: 200,
     },
     profilepicWrap: {
         width: 180,
@@ -66,18 +91,20 @@ const styles = StyleSheet.create({
         borderWidth: 16,
     },
     profilepic: {
-        flex: 1,
-        width: null,
-        alignSelf: 'stretch',
-        borderRadius: 100,
-        borderColor: '#FFF',
+        width: 130,
+        height: 130,
+        alignSelf: 'center',
+        borderRadius: 63,
+        borderColor: 'white',
         borderWidth: 4,
+        marginBottom: 10,
+        position: 'absolute',
+        marginTop: 130
     },
     username: {
-        marginTop: 20,
-        fontSize: 16,
+        fontSize: 28,
         color: '#FFF',
-        fontWeight: 'bold',
+        fontWeight: "600",
     },
     bar: {
         borderTopColor: '#FFF',
