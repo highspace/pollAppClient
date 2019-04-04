@@ -4,6 +4,7 @@ import {
   StyleSheet,
   Text,
   View,
+
 } from 'react-native';
 import { WebBrowser } from 'expo';
 import { MonoText } from '../components/StyledText';
@@ -16,26 +17,27 @@ export default class ProfileScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                      <View style={styles.header}></View>
-                      <Image style={styles.profilepic} source={require('../assets/images/profileicon.png')}/>
-                      <View style={styles.body}>
-                        <View style={styles.bodyContent}>
-                          <Text style={styles.username}>Username</Text>
+                 <View style={styles.header}></View>
+                 <Image style={styles.profilepic} source={require('../assets/images/Profile_def.png')}/>
+                 <View style={styles.body}>
+                        <View style ={styles.bodyContent}>
+                            <Text style={styles.username}>User Name</Text>
                         </View>
-                    </View>
+                        <Text style={styles.username}>User Name</Text>
+                        <View style={styles.bar}>
+                              <View style={[styles.barItem, styles.barseparator]}>
+                                    <Text style= {styles.barTop}>Liked Polls</Text>
+                              </View>
+                        </View>
+                 </View>
             </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    container:{
-        flex: 1,
-        backgroundColor: '#FFF',
-        paddingTop: 15,
-    },
     body: {
-        marginTop: 40,
+        marginTop: 10,
     },
     bodyContent: {
         flex: 1,
@@ -56,37 +58,39 @@ const styles = StyleSheet.create({
         height: 130,
         alignSelf: 'center',
         borderRadius: 63,
-        borderColor: "white",
+        borderColor: "black",
         borderWidth: 4,
         marginBottom: 10,
         position: 'absolute',
         marginTop: 130
     },
     username: {
-        fontSize: 28,
-        color: "#FFF",
-        fontWeight: "600",
+        fontSize: 25,
+        color: "black",
+        fontWeight: '600',
+        alignSelf: 'center',
+        marginBottom: 20,
     },
     bar: {
-        borderTopColor: "#FFF",
-        borderTopWidth: 4,
-        backgroundColor: "#FFF",
+        borderTopColor: "black",
+        borderTopWidth: 2,
+        backgroundColor: "black",
         flexDirection: 'row',
     },
     barseparator: {
-        color: "#FFF",
+        color: "#00BFFF",
         fontSize: 16,
         fontWeight: 'bold',
         fontStyle: 'italic',
     },
-    barTop:{
-        color: "#FFF",
-        fontSize: 14,
+    barTop:{ //liked polls
+        color: "white",
+        fontSize: 20,
         fontWeight: 'bold',
     },
     barItem:{
         flex: 1,
-        padding: 18,
+        padding: 10,
         alignItems: 'center',
     }
 
