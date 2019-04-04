@@ -48,8 +48,9 @@ ProfileStack.navigationOptions = {
   tabBarLabel: 'Profile',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'}
+      //focused={focused}
+      name={Platform.OS === 'ios' ? 'ios-options' : './assets/profileiconedited.png'}
+      //icon={require('./assets/profileiconedited.png')}
     />
   ),
 };
