@@ -22,8 +22,8 @@ export default class ProfileScreen extends React.Component {
         return (
           <ScrollView style={styles.container}>
             <Text> User Profile </Text>
-            
-            <Image style = {style.headerBackgroundImage} source={require('../assets/images/profileicon.png')}>
+
+            <Image style = {styles.headerBackgroundImage} source={require('../assets/images/profileicon.png')}>
             </Image>
 
           </ScrollView>
