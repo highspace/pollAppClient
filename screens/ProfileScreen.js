@@ -22,7 +22,7 @@ export default class ProfileScreen extends React.Component {
         return (
           //<ScrollView style={styles.container}>
           <View style = {styles.container}>
-            <Text> User Profile </Text>
+            //<Text> User Profile </Text>
 
             //header
             <Image style = {styles.headerBackgroundImage} source={require('../assets/images/backgroundpic.png')}>
@@ -37,7 +37,7 @@ export default class ProfileScreen extends React.Component {
                 </View>
             </Image>
 
-            
+
 
           </View>
           //</ScrollView>
