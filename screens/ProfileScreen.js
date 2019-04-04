@@ -20,9 +20,11 @@ export default class ProfileScreen extends React.Component {
     };
     render() {
         return (
-          <ScrollView style={styles.container}>
+          //<ScrollView style={styles.container}>
+          <View style = {styles.container}>
             <Text> User Profile </Text>
 
+            //header
             <Image style = {styles.headerBackgroundImage} source={require('../assets/images/backgroundpic.png')}>
                 <View style = {styles.header}>
                     <View style = {styles.profilepicWrap}>
@@ -35,12 +37,19 @@ export default class ProfileScreen extends React.Component {
                 </View>
             </Image>
 
-          </ScrollView>
+            
+
+          </View>
+          //</ScrollView>
         );
     }
 }
 
 const styles = StyleSheet.create({
+    container:{
+        flex: 1,
+        backgroundColor: '#FFF',
+    },
     headerBackgroundImage: {
         flex: 1,
         width: null,
