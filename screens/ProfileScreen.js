@@ -7,7 +7,6 @@ import {
 } from 'react-native';
 import { WebBrowser } from 'expo';
 import { MonoText } from '../components/StyledText';
-import { tintColor} from '../constants/Colors';
 
 export default class ProfileScreen extends React.Component {
     static navigationOptions = {
@@ -49,26 +48,15 @@ const styles = StyleSheet.create({
         alignSelf: 'stretch',
     },
     header: {
-        //flex: 1,
-        //alignItems: 'center',
-        //justifyContent: 'center',
-        //padding: 20,
-        backgroundColor: tintColor,
+        backgroundColor: "#00BFFF",
         height: 200,
-    },
-    profilepicWrap: {
-        width: 180,
-        height: 180,
-        borderRadius: 100,
-        borderColor: '#FFF',
-        borderWidth: 16,
     },
     profilepic: {
         width: 130,
         height: 130,
         alignSelf: 'center',
         borderRadius: 63,
-        borderColor: 'white',
+        borderColor: "white",
         borderWidth: 4,
         marginBottom: 10,
         position: 'absolute',
@@ -76,23 +64,23 @@ const styles = StyleSheet.create({
     },
     username: {
         fontSize: 28,
-        color: '#FFF',
+        color: "#FFF",
         fontWeight: "600",
     },
     bar: {
-        borderTopColor: '#FFF',
+        borderTopColor: "#FFF",
         borderTopWidth: 4,
-        backgroundColor: '#FFF',
+        backgroundColor: "#FFF",
         flexDirection: 'row',
     },
     barseparator: {
-        color: '#FFF',
+        color: "#FFF",
         fontSize: 16,
         fontWeight: 'bold',
         fontStyle: 'italic',
     },
     barTop:{
-        color: '#FFF',
+        color: "#FFF",
         fontSize: 14,
         fontWeight: 'bold',
     },
