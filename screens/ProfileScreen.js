@@ -11,6 +11,7 @@ import {
   View,
 } from 'react-native';
 import { WebBrowser } from 'expo';
+import { MonoText } from '../components/StyledText';
 
 export default class ProfileScreen extends React.Component {
     static navigationOptions = {
@@ -21,6 +22,10 @@ export default class ProfileScreen extends React.Component {
         return (
           <ScrollView style={styles.container}>
             <Text> User Profile </Text>
+            
+            <Image style = {style.headerBackgroundImage} source={require('../assets/images/profileicon.png')}>
+            </Image>
+
           </ScrollView>
         );
     }
@@ -29,14 +34,8 @@ export default class ProfileScreen extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: "#FFF",
     },
-    cardContainer: {
-        backgroundColor: '#FFF',
-        borderWidth: 0,
-        flex: 1,
-        margin: 0,
-        padding: 0,
-     },
     headerBackgroundImage: {
         paddingBottom: 20,
         paddingTop: 35,
