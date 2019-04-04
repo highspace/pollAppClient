@@ -23,7 +23,16 @@ export default class ProfileScreen extends React.Component {
           <ScrollView style={styles.container}>
             <Text> User Profile </Text>
 
-            <Image style = {styles.headerBackgroundImage} source={require('../assets/images/profileicon.png')}>
+            <Image style = {styles.headerBackgroundImage} source={require('../assets/images/backgroundpic.png')}>
+                <View style = {styles.header}>
+                    <View style = {styles.profilepicWrap}>
+                        <Image style = {styles.profilepic} source = {require('../assets/images/profileicon.png')} />
+
+                    </View>
+
+                    <Text style = {styles.name}> Username Here</Text>
+
+                </View>
             </Image>
 
           </ScrollView>
@@ -32,50 +41,39 @@ export default class ProfileScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#FFF",
-    },
     headerBackgroundImage: {
-        ios: {
-            alignItems: 'center',
-        },
-        android: {
-            alignItems: 'center',
-        },
-        paddingBottom: 20,
-        paddingTop: 35,
+        flex: 1,
+        width: null,
+        alignSelf: 'stretch',
     },
-    headerContainer: {},
-    headerColumn: {
-        backgroundColor: 'transparent',
-        ...Platform.select({
-          ios: {
-            alignItems: 'center',
-            elevation: 1,
-            marginTop: -1,
-          },
-          android: {
-            alignItems: 'center',
-          },
-        }),
-    },
-    scroll: {
+    header: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 20,
         backgroundColor: '#FFF',
     },
-    userImage: {
+    profilepicWrap: {
+        width: 180,
+        height: 180,
+        borderRadius: 100,
         borderColor: '#FFF',
-        borderRadius: 85,
-        borderWidth: 3,
-        height: 170,
-        marginBottom: 15,
-        width: 170,
+        borderWidth: 16,
     },
-    userNameText: {
+    profilepic: {
+        flex: 1,
+        width: null,
+        alignSelf: 'stretch',
+        borderRadius: 100,
+        borderColor: '#FFF',
+        borderWidth: 4,
+    },
+    name: {
+        marginTop: 20,
+        fontSize: 16,
         color: '#FFF',
-        fontSize: 22,
         fontWeight: 'bold',
-        paddingBottom: 8,
-        textAlign: 'center',
     }
+
+
 });
