@@ -14,10 +14,10 @@ import { WebBrowser } from 'expo';
 import { MonoText } from '../components/StyledText';
 
 export default class ProfileScreen extends React.Component {
-//    static navigationOptions = {
-//        //header: null,
-//        title: 'User Profile',
-//    };
+    static navigationOptions = {
+        //header: null,
+        title: 'User Profile',
+    };
     render() {
         return (
           //<ScrollView style={styles.container}>
@@ -32,7 +32,7 @@ export default class ProfileScreen extends React.Component {
 
                     </View>
 
-                    <Text style = {styles.username}>Username Here</Text>
+                    //<Text style = {styles.username}>Username Here</Text>
 
                 </View>
             </Image>
