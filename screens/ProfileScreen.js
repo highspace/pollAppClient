@@ -1,10 +1,6 @@
 import React from 'react';
 import {
   Image,
-  ImageBackground,
-  Linking,
-  ListView,
-  Platform,
   ScrollView,
   StyleSheet,
   Text,
@@ -20,27 +16,27 @@ export default class ProfileScreen extends React.Component {
     };
     render() {
         return (
-          //<ScrollView style={styles.container}>
-          <View style = {styles.container}>
-            //<Text> User Profile </Text>
+          <ScrollView style={styles.container}>
+              //<View style = {styles.container}>
+                //<Text> User Profile </Text>
 
-            //header
-            <Image style = {styles.headerBackgroundImage} source={require('../assets/images/backgroundpic.png')}>
-                <View style = {styles.header}>
-                    <View style = {styles.profilepicWrap}>
-                        <Image style = {styles.profilepic} source = {require('../assets/images/profileicon.png')} />
+                //header
+                <Image style = {styles.headerBackgroundImage} source={require('../assets/images/backgroundpic.png')}>
+                    <View style = {styles.header}>
+                        <View style = {styles.profilepicWrap}>
+                            <Image style = {styles.profilepic} source = {require('../assets/images/profileicon.png')} />
+
+                        </View>
+
+                        <Text style = {styles.username}>Username Here</Text>
 
                     </View>
-
-                    //<Text style = {styles.username}>Username Here</Text>
-
-                </View>
-            </Image>
+                </Image>
 
 
 
-          </View>
-          //</ScrollView>
+              //</View>
+          </ScrollView>
         );
     }
 }
