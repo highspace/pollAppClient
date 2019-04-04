@@ -17,31 +17,25 @@ export default class ProfileScreen extends React.Component {
     render() {
         return (
           <ScrollView style={styles.container}>
-                //<Text>UserProfile</Text>
-
                 //header
-                <Text>
-                <Image style = {styles.headerBackgroundImage} source={require('../assets/images/backgroundpic.png')}>
-                    <View style = {styles.header}>
-                        <View style = {styles.profilepicWrap}>
-                            <Image style = {styles.profilepic} source = {require('../assets/images/profileicon.png')}> </Image>
+                <View style = {styles.header}>
+                    <Image style = {styles.headerBackgroundImage} source={require('../assets/images/backgroundpic.png')}>
+                         <View style = {styles.profilepicWrap}>
+                                <Image style = {styles.profilepic} source = {require('../assets/images/profileicon.png')}/>
+                         </View>
 
-                        </View>
+                         <Text style = {styles.username}>Username</Text>
+                    </Image>
+                </View>
 
-                        <Text style = {styles.username}>Username</Text>
-
-                    </View>
-                </Image>
-
-               //bar
+                //bar
                 <View style = {styles.bar}>
                     <View style = {[styles.barItem, styles.barseparator]}>
-                        <Text style={styles.barTop}>LikedPolls</Text>
-                        //<Text style={styles.barBottom}> Liked Polls </Text>
+                         <Text style={styles.barTop}>Liked Polls</Text>
+                            //<Text style={styles.barBottom}> Liked Polls </Text>
                     </View>
                 </View>
 
-              </Text>
           </ScrollView>
         );
     }
