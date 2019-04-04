@@ -7,11 +7,12 @@ import {
 } from 'react-native';
 import { WebBrowser } from 'expo';
 import { MonoText } from '../components/StyledText';
+import { tintColor} from '../constants/Colors';
 
 export default class ProfileScreen extends React.Component {
     static navigationOptions = {
         //header: null,
-        title: 'User Profile',
+        title: 'Profile',
     };
     render() {
         return (
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
         //alignItems: 'center',
         //justifyContent: 'center',
         //padding: 20,
-        backgroundColor: '#FFF',
+        backgroundColor: tintColor,
         height: 200,
     },
     profilepicWrap: {
