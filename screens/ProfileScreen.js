@@ -37,6 +37,12 @@ const styles = StyleSheet.create({
         backgroundColor: "#FFF",
     },
     headerBackgroundImage: {
+        ios: {
+            alignItems: 'center',
+        },
+        android: {
+            alignItems: 'center',
+        },
         paddingBottom: 20,
         paddingTop: 35,
     },
