@@ -33,6 +33,13 @@ export default class ProfileScreen extends React.Component {
                     </View>
                 </Image>
 
+               //bar
+                <View style = {styles.bar}>
+                    <View style = {[styles.barItem, styles.barseparator]}>
+                        <Text style={styles.barTop}> Liked Polls </Text>
+                        //<Text style={styles.barBottom}> Liked Polls </Text>
+                    </View>
+                </View>
 
 
               //</View>
@@ -45,6 +52,7 @@ const styles = StyleSheet.create({
     container:{
         flex: 1,
         backgroundColor: '#FFF',
+        paddingTop: 15,
     },
     headerBackgroundImage: {
         flex: 1,
@@ -78,6 +86,28 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: '#FFF',
         fontWeight: 'bold',
+    },
+    bar: {
+        borderTopColor: '#FFF',
+        borderTopWidth: 4,
+        backgroundColor: '#FFF',
+        flexDirection: 'row',
+    },
+    barseparator: {
+        color: '#FFF',
+        fontSize: 16,
+        fontWeight: 'bold',
+        fontStyle: 'italic',
+    },
+    barTop:{
+        color: '#FFF',
+        fontSize: 14,
+        fontWeight: 'bold',
+    },
+    barItem:{
+        flex: 1,
+        padding: 18,
+        alignItems: 'center',
     }
 
 });
