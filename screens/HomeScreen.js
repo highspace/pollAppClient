@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   Image,
   Platform,
@@ -7,15 +7,43 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Button
 } from 'react-native';
-import { WebBrowser } from 'expo';
 
-import { MonoText } from '../components/StyledText';
+class ComposeImage extends Component {
+  render() {
+    return (
+      <View style={{flexDirection: 'row'}}>
+      <TouchableOpacity onPress={() => alert('This is the compose poll button!')} style={styles.touchable}>
+        <Image style={styles.compose} source={require('../assets/images/compose.png')}/>
+      </TouchableOpacity>
+      </View>
+    );
+  }
+}
+
+class MenuImage extends Component {
+  render() {
+    return (
+      <View style={{flexDirection: 'row'}}>
+      <TouchableOpacity onPress={() => alert('This is the menu button!')} style={styles.touchable}>
+        <Image style={styles.menu} source={require('../assets/images/hamburgerMenu.png')}/>
+      </TouchableOpacity>
+      </View>
+    );
+  }
+}
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     //header: null,
     title: 'Home Page',
+    headerRight: (
+      <ComposeImage />
+    ),
+    headerLeft: (
+      <MenuImage />
+    ),
   };
 
   render() {
@@ -32,6 +60,21 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 15,
     backgroundColor: '#fff',
+  },
+  compose: {
+    marginRight:10,
+    alignSelf:'center',
+    height:30,
+    width:30
+  },
+  menu: {
+    alignSelf:'center',
+    height:60,
+    width:60
+  },
+  touchable: {
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   developmentModeText: {
     marginBottom: 20,
