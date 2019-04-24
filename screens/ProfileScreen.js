@@ -4,7 +4,8 @@ import {
   StyleSheet,
   Text,
   View,
-
+  ScrollView,
+  Dimensions,
 } from 'react-native';
 import { WebBrowser } from 'expo';
 import { MonoText } from '../components/StyledText';
@@ -26,23 +27,62 @@ export default class ProfileScreen extends React.Component {
                         <Text style={styles.username}>User Name</Text>
                         <View style={styles.bar}>
                               <View style={[styles.barItem, styles.barseparator]}>
-                                    <Text style= {styles.barTop}>Liked Polls</Text>
+                                    <Text style= {styles.barTop}>Voted Polls</Text>
+                              </View>
+                              <View style={[styles.barItem, styles.barseparator]}>
+                                    <Text style= {styles.barTop}>Created Polls</Text>
                               </View>
                         </View>
                  </View>
+                 <ScrollView>
+                    <View style={styles.pollGrid}>
+                        <View style={styles.pollWrap}>
+                            <Image style = {styles.poll} source={require('../assets/images/AirBB.png')}/>
+                        </View>
+                        <View style={styles.pollWrap}>
+                            <Image style = {styles.poll} source={require('../assets/images/AirBB.png')}/>
+                        </View>
+                        <View style={styles.pollWrap}>
+                            <Image style = {styles.poll} source={require('../assets/images/AirBB.png')}/>
+                        </View>
+                        <View style={styles.pollWrap}>
+                            <Image style = {styles.poll} source={require('../assets/images/AirBB.png')}/>
+                        </View>
+                        <View style={styles.pollWrap}>
+                             <Image style = {styles.poll} source={require('../assets/images/AirBB.png')}/>
+                        </View>
+                        <View style={styles.pollWrap}>
+                             <Image style = {styles.poll} source={require('../assets/images/AirBB.png')}/>
+                        </View>
+                        <View style={styles.pollWrap}>
+                             <Image style = {styles.poll} source={require('../assets/images/AirBB.png')}/>
+                        </View>
+                        <View style={styles.pollWrap}>
+                            <Image style = {styles.poll} source={require('../assets/images/AirBB.png')}/>
+                        </View>
+                        <View style={styles.pollWrap}>
+                            <Image style = {styles.poll} source={require('../assets/images/AirBB.png')}/>
+                        </View>
+                    </View>
+                 </ScrollView>
             </View>
+
         );
     }
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
     body: {
-        marginTop: 10,
+        backgroundColor: "#87cefa",
+        height: 100,
     },
     bodyContent: {
         flex: 1,
         alignItems: 'center',
-        padding: 30,
+        padding: 4,
     },
     headerBackgroundImage: {
         flex: 1,
@@ -50,8 +90,8 @@ const styles = StyleSheet.create({
         alignSelf: 'stretch',
     },
     header: {
-        backgroundColor: "#00BFFF",
-        height: 200,
+        backgroundColor: "#87cefa",
+        height: 170,
     },
     profilepic: {
         width: 130,
@@ -60,38 +100,52 @@ const styles = StyleSheet.create({
         borderRadius: 63,
         borderColor: "black",
         borderWidth: 4,
-        marginBottom: 10,
+        marginBottom: 2,
         position: 'absolute',
-        marginTop: 130
+        marginTop: 30
     },
     username: {
         fontSize: 25,
         color: "black",
         fontWeight: '600',
         alignSelf: 'center',
-        marginBottom: 20,
+        marginBottom: 15,
     },
     bar: {
-        borderTopColor: "black",
+        borderTopColor: "#87cefa",
         borderTopWidth: 2,
-        backgroundColor: "black",
+        backgroundColor: "#708090",
         flexDirection: 'row',
     },
     barseparator: {
-        color: "#00BFFF",
+        color: "white",
         fontSize: 16,
         fontWeight: 'bold',
         fontStyle: 'italic',
     },
-    barTop:{ //liked polls
+    barTop:{
         color: "white",
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: 'bold',
     },
     barItem:{
         flex: 1,
         padding: 10,
         alignItems: 'center',
+    },
+    pollGrid:{
+        flexDirection: 'row',
+        flexWrap: 'wrap'
+    },
+    pollWrap:{
+        margin: 2,
+        height: 120,
+        width: (Dimensions.get('window').width/2) -4,
+    },
+    poll:{
+        flex: 1,
+        width: null,
+        alignSelf: 'stretch',
     }
 
 });
