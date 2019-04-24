@@ -23,24 +23,6 @@ LoginStack.navigationOptions = {
   ),
 };
 
-const CreatePollStack = createStackNavigator({
-  CreatePoll: CreatePollScreen,
-});
-
-CreatePollStack.navigationOptions = {
-  tabBarLabel: 'New Poll',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name = {
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
-    />
-  ),
-};
-
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
 });
@@ -51,6 +33,24 @@ HomeStack.navigationOptions = {
     <TabBarIcon
       focused={focused}
       name={
+        Platform.OS === 'ios'
+          ? `ios-information-circle${focused ? '' : '-outline'}`
+          : 'md-information-circle'
+      }
+    />
+  ),
+};
+
+const CreatePollStack = createStackNavigator({
+  CreatePoll: CreatePollScreen,
+});
+
+CreatePollStack.navigationOptions = {
+  tabBarLabel: 'New Poll',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name = {
         Platform.OS === 'ios'
           ? `ios-information-circle${focused ? '' : '-outline'}`
           : 'md-information-circle'
@@ -88,8 +88,7 @@ SettingsStack.navigationOptions = {
 };
 
 export default createBottomTabNavigator({
-  CreatePollStack,
   HomeStack,
-  LinksStack,
+  CreatePollStack,
   SettingsStack
 });
