@@ -1,10 +1,12 @@
 import React from 'react';
 import {
   Image,
+  Button,
   Platform,
   ScrollView,
   StyleSheet,
   Text,
+  Icon,
   TouchableOpacity,
   View,
   Dimensions,
@@ -21,7 +23,9 @@ export default class HomeScreen extends React.Component {
 
   render() {
     return (
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
+
+      <ScrollView>
         <View style={styles.grid}>
             <View style={styles.gridWrap}>
                 <Image style = {styles.poll} source={require('../assets/images/AirBB.png')}/>
@@ -32,6 +36,21 @@ export default class HomeScreen extends React.Component {
             </View>
          </View>
       </ScrollView>
+
+        <Button
+          icon={
+              <Icon
+                name="arrow-right"
+                size={15}
+                color="#87cefa"
+                //onPress need to go here
+              />
+            }
+            iconRight
+            title="Add New Poll"
+        />
+
+      </View>
     );
   }
 }
@@ -39,7 +58,7 @@ export default class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 15,
+    paddingTop: 0,
     backgroundColor: '#fff',
   },
   developmentModeText: {
@@ -138,4 +157,15 @@ const styles = StyleSheet.create({
     width: null,
     alignSelf: 'stretch',
   },
+  header: {
+    backgroundColor: "#87cefa",
+    height: 35,
+  },
+  addpoll:{
+    marginTop: 5,
+    alignSelf: 'center',
+    color: "white",
+    fontSize: 18,
+    fontWeight: 'bold',
+  }
 });
