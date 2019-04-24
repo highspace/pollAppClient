@@ -4,7 +4,7 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+//import LinksScreen from '../screens/LinksScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 //import SettingsScreen from '../screens/SettingsScreen';
 
@@ -17,28 +17,24 @@ HomeStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
+      name={Platform.OS === 'ios' ? 'ios-home' : 'md-home'}
     />
   ),
 };
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
-});
-
-LinksStack.navigationOptions = {
-  tabBarLabel: 'New Poll',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-add' : 'md-add'}
-    />
-  ),
-};
+//const LinksStack = createStackNavigator({
+//  Links: LinksScreen,
+//});
+//
+//LinksStack.navigationOptions = {
+//  tabBarLabel: 'New Poll',
+//  tabBarIcon: ({ focused }) => (
+//    <TabBarIcon
+//      focused={focused}
+//      name={Platform.OS === 'ios' ? 'ios-add' : 'md-add'}
+//    />
+//  ),
+//};
 
 const ProfileStack = createStackNavigator({
   Profile: ProfileScreen,
@@ -57,6 +53,6 @@ ProfileStack.navigationOptions = {
 
 export default createBottomTabNavigator({
   HomeStack,
-  LinksStack,
+//  LinksStack,
   ProfileStack
 });

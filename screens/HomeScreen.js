@@ -7,6 +7,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Dimensions,
 } from 'react-native';
 import { WebBrowser } from 'expo';
 
@@ -15,13 +16,21 @@ import { MonoText } from '../components/StyledText';
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     //header: null,
-    title: 'Home Page',
+    title: 'Pollarity',
   };
 
   render() {
     return (
       <ScrollView style={styles.container}>
-        <Text> Home Page </Text>
+        <View style={styles.grid}>
+            <View style={styles.gridWrap}>
+                <Image style = {styles.poll} source={require('../assets/images/AirBB.png')}/>
+
+            </View>
+            <View style={styles.gridWrap}>
+                <Image style = {styles.poll} source={require('../assets/images/AirBB.png')}/>
+            </View>
+         </View>
       </ScrollView>
     );
   }
@@ -114,5 +123,19 @@ const styles = StyleSheet.create({
   helpLinkText: {
     fontSize: 14,
     color: '#2e78b7',
+  },
+  grid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap'
+  },
+  gridWrap:{
+    margin: 2,
+    height: 150,
+    width: (Dimensions.get('window').width),
+  },
+  poll:{
+    flex: 1,
+    width: null,
+    alignSelf: 'stretch',
   },
 });
