@@ -17,17 +17,6 @@ import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 
-const PollCard = ({title}) => {
-  return (
-      <TouchableOpacity style={{backgroundColor: 'transparent'}}>
-          <View  style={styles.listItemContainer}>
-              <Text style={styles.pollHeader}>{title}</Text>
-              <Image source={{uri: 'https://res.cloudinary.com/aa1997/image/upload/v1535930682/pokeball-image.jpg'}} />
-          </View>
-      </TouchableOpacity>
-  )
-}
-
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     //header: null,
@@ -51,13 +40,19 @@ export default class HomeScreen extends React.Component {
         .catch(error => console.log(error)) //to catch the errors if any
   }
 
-  renderItem=(data)=>
-<TouchableOpacity style={styles.list}>
-  <Text style={styles.lightText}>{data.item.title}</Text> 
-  {/* <Text style={styles.lightText}>{data.item.email}</Text>
-  <Text style={styles.lightText}>{data.item.company.name}</Text> */}
-</TouchableOpacity>
-
+  renderItem = (data) =>
+    <TouchableOpacity style={styles.list}>
+    <View style={{flexDirection: 'row', textAlign: 'left', fontSize: 15, backgroundColor:'transparent', paddingLeft: 10}}>
+        <Image source={require('../assets/images/PollLogo.jpg')} style={styles.pollImage}/>
+        <Text style={styles.pollCreator}>@{data.item.creator_id}</Text> 
+        </View>
+    <View style={{flexDirection: 'row', textAlign: 'left', fontSize: 15, backgroundColor:'transparent', paddingLeft: 10}}>
+        <Text style={styles.pollContent}>{data.item.title}</Text> 
+      </View>
+      <View style={{ borderBottomColor: 'black', borderBottomWidth: 1 }} />
+    </TouchableOpacity>
+  
+  
   render() {
     const { navigate } = this.props.navigation;
     const { pollList, loading } = this.state;
@@ -104,6 +99,21 @@ export default class HomeScreen extends React.Component {
   }
 
 const styles = StyleSheet.create({
+  pollImage: {
+    backgroundColor: 'transparent',
+    height: 100,
+    width: 100
+  },
+  pollCreator: {
+    fontWeight: 'bold',
+    fontSize: 25,
+    alignSelf: 'center',
+    paddingLeft: 10
+  },
+  pollContent: {
+    fontSize: 50,
+    alignSelf: 'center'
+  },
   list: {
     paddingVertical: 4,
     margin: 5,
