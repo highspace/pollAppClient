@@ -42,13 +42,43 @@ const options = {
 export default class CreatePollScreen extends React.Component {
   static navigationOptions = {
     //header: null,
-    title: 'Create a Poll',
+    title: 'CreatePoll',
   };
 
   onPress = () => {
     const value = this._form.getValue();
     console.log('value: ', value);
+    this.postPoll();
   }
+
+  async postPoll() {
+    var data = {
+      creator_id: "emfp97",
+      title: "Poll test",
+      choices: ["1", "2"],
+      expiration_date: null
+    };
+
+    try {
+      let response = await fetch(
+        "https://pollarity18.herokuapp.com/polls",
+        {
+          method: "POST",
+          headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data)
+        }
+      );
+      if (response.status >= 200 && response.status < 300) {
+        alert("authenticated successfully!!!");
+    }
+  } catch (errors) {
+
+    alert(errors);
+    } 
+}
 
   render() {
     return (
