@@ -59,13 +59,14 @@ export default class CreatePollScreen extends React.Component {
 onPress = () => {
   const value = this._form.getValue();
   console.log('value: ', value);
-  this.postPoll();
+  const newTitle = this._form.getValue().question;
+  this.postPoll(newTitle);
 };
 
-  async postPoll() {
+  async postPoll(newTitle) {
     var data = {
       creator_id: "Tester",
-      title: this.state.title,
+      title: newTitle,
       choices: ["1", "2"],
       expiration_date: null
     };
