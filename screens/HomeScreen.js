@@ -22,6 +22,7 @@ export default class HomeScreen extends React.Component {
   };
 
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
 
@@ -34,17 +35,15 @@ export default class HomeScreen extends React.Component {
             <View style={styles.gridWrap}>
                 <Image style = {styles.poll} source={require('../assets/images/AirBB.png')}/>
             </View>
-         </View>
+        </View>
       </ScrollView>
 
-        <Button
+        <Button onPress={() => navigate('CreatePoll')}
           icon={
               <Icon
                 name="arrow-right"
                 size={15}
-                color="#87cefa"
-                //onPress need to go here
-              />
+                color="#87cefa"              />
             }
             iconRight
             title="Add New Poll"
