@@ -31,6 +31,7 @@ const Poll = t.struct({
 const options = {
   fields: {
     question: {
+      // onChangeText: this.setState({title: text}),
       error: 'Please enter your poll question.'
     },
     choices: {
@@ -45,16 +46,26 @@ export default class CreatePollScreen extends React.Component {
     title: 'CreatePoll',
   };
 
-  onPress = () => {
-    const value = this._form.getValue();
-    console.log('value: ', value);
-    this.postPoll();
-  }
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: "",
+      creator_id: "",
+      choices: "",
+      expiration_date: "",
+    }
+};
+
+onPress = () => {
+  const value = this._form.getValue();
+  console.log('value: ', value);
+  this.postPoll();
+};
 
   async postPoll() {
     var data = {
-      creator_id: "emfp97",
-      title: "Poll test",
+      creator_id: "Tester",
+      title: this.state.title,
       choices: ["1", "2"],
       expiration_date: null
     };
@@ -72,20 +83,20 @@ export default class CreatePollScreen extends React.Component {
         }
       );
       if (response.status >= 200 && response.status < 300) {
-        alert("authenticated successfully!!!");
+        alert("Poll created!");
     }
   } catch (errors) {
 
     alert(errors);
     } 
-}
+};
 
   render() {
     return (
       <ScrollView style={styles.container}>
         {/* <Text> Create a Poll </Text> */}
         <Form ref={c => this._form = c} type={Poll} options={options}/>
-        <TouchableHighlight style={styles.button} onPress={this.onPress} underlayColor='#99d9f4'>
+        <TouchableHighlight style={styles.button} onPress={this.onPress.bind(this)} underlayColor='#99d9f4'>
           <Text style={styles.buttonText}>Submit</Text>
         </TouchableHighlight>
       </ScrollView>

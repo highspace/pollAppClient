@@ -10,10 +10,23 @@ import {
   TouchableOpacity,
   View,
   Dimensions,
+  FlatList,
+  ActivityIndicator
 } from 'react-native';
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
+
+const PollCard = ({title}) => {
+  return (
+      <TouchableOpacity style={{backgroundColor: 'transparent'}}>
+          <View  style={styles.listItemContainer}>
+              <Text style={styles.pollHeader}>{title}</Text>
+              <Image source={{uri: 'https://res.cloudinary.com/aa1997/image/upload/v1535930682/pokeball-image.jpg'}} />
+          </View>
+      </TouchableOpacity>
+  )
+}
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -21,40 +34,93 @@ export default class HomeScreen extends React.Component {
     title: 'Pollarity',
   };
 
+  state = {
+    pollList: [],
+    loading: true
+  }
+
+  async componentDidMount() {
+      fetch('https://pollarity18.herokuapp.com/polls?$limit=100&$skip=0')
+        .then(response => response.json())
+        .then((responseJson) => {
+          this.setState({
+            loading: false,
+            pollList: responseJson
+          })
+        })
+        .catch(error => console.log(error)) //to catch the errors if any
+  }
+
+  renderItem=(data)=>
+<TouchableOpacity style={styles.list}>
+  <Text style={styles.lightText}>{data.item.title}</Text> 
+  {/* <Text style={styles.lightText}>{data.item.email}</Text>
+  <Text style={styles.lightText}>{data.item.company.name}</Text> */}
+</TouchableOpacity>
+
   render() {
     const { navigate } = this.props.navigation;
-    return (
-      <View style={styles.container}>
+    const { pollList, loading } = this.state;
 
-      <ScrollView>
-        <View style={styles.grid}>
-            <View style={styles.gridWrap}>
-                <Image style = {styles.poll} source={require('../assets/images/AirBB.png')}/>
-
-            </View>
-            <View style={styles.gridWrap}>
-                <Image style = {styles.poll} source={require('../assets/images/AirBB.png')}/>
-            </View>
+    if(this.state.loading){
+      return( 
+        <View style={styles.loader}> 
+          <ActivityIndicator size="large" color="#0c9"/>
         </View>
-      </ScrollView>
+    )}
+      return (
+        <View style={styles.container}>
+          <FlatList
+            data= {this.state.pollList}
+            ItemSeparatorComponent = {this.FlatListItemSeparator}
+            renderItem= {item=> this.renderItem(item)}
+            keyExtractor={item => item.title.toString()}
+          />
+          {/* <ScrollView>
+            <View style={styles.grid}>
+              <View style={styles.gridWrap}>
+                <Image style={styles.poll} source={require('../assets/images/AirBB.png')} />
 
-        <Button onPress={() => navigate('CreatePoll')}
-          icon={
+              </View>
+              <View style={styles.gridWrap}>
+                <Image style={styles.poll} source={require('../assets/images/AirBB.png')} />
+              </View>
+            </View>
+          </ScrollView> */}
+
+          <Button onPress={() => navigate('CreatePoll')}
+            icon={
               <Icon
                 name="arrow-right"
                 size={15}
-                color="#87cefa"              />
+                color="#87cefa" />
             }
             iconRight
             title="Add New Poll"
-        />
-
-      </View>
-    );
+          />
+        </View>
+      );
+    }
   }
-}
 
 const styles = StyleSheet.create({
+  list: {
+    paddingVertical: 4,
+    margin: 5,
+    backgroundColor: "#fff"
+  },
+  listItemContainer: {
+    borderStyle: 'solid',
+    borderColor: '#fff',
+    borderBottomWidth: 2,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 20
+  },
+  pollHeader: {  
+      color: '#fff',
+      fontSize: 24,
+  },
   container: {
     flex: 1,
     paddingTop: 0,
