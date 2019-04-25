@@ -9,12 +9,31 @@ import {
   View,
   Button
 } from 'react-native';
+import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import LinksScreen from '../screens/LinksScreen';
+
+
+const LinksStack = createStackNavigator({
+  Links: LinksScreen,
+});
+
+LinksStack.navigationOptions = {
+  title: 'Links',
+  header: ({ navigate }) => ({
+          right: (    
+            <ComposeImage/>
+          ),
+    }),
+};
 
 class ComposeImage extends Component {
+  goToNotification = () => {
+        this.props.navigate('LinksScreen');
+    };
   render() {
     return (
       <View style={{flexDirection: 'row'}}>
-      <TouchableOpacity onPress={() => alert('This is the compose poll button!')} style={styles.touchable}>
+      <TouchableOpacity onPress={() => this.props.navigate('LinksScreen')} style={styles.touchable}>
         <Image style={styles.compose} source={require('../assets/images/compose.png')}/>
       </TouchableOpacity>
       </View>
@@ -49,7 +68,8 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        <Text> Home Page </Text>
+        <Image style={styles.image} source={require('../assets/images/poll.png')}/>
+        <Image style={styles.image2} source={require('../assets/images/poll3.png')}/>
       </ScrollView>
     );
   }
@@ -60,6 +80,18 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 15,
     backgroundColor: '#fff',
+  },
+  image: {
+    flex: 1,
+    height: 200,
+    width: 400,
+    resizeMode: 'contain'
+  },
+  image2: {
+    flex: 1,
+    height: 200,
+    width: 350,
+    resizeMode: 'contain'
   },
   compose: {
     marginRight:10,
