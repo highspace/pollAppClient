@@ -74,7 +74,7 @@ export default class HomeScreen extends React.Component {
             data= {this.state.pollList}
             ItemSeparatorComponent = {this.FlatListItemSeparator}
             renderItem= {item=> this.renderItem(item)}
-            keyExtractor={item => item.title.toString()}
+            // keyExtractor={item => item.title.toString()}
           />
           {/* <ScrollView>
             <View style={styles.grid}>
