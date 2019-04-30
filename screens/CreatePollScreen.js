@@ -107,7 +107,6 @@ onPress = () => {
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: 'center',
     marginTop: 25,
     padding: 10,
     backgroundColor: '#ffffff',
@@ -208,7 +207,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 8,
     marginBottom: 10,
-    alignSelf: 'stretch',
-    justifyContent: 'center'
+    alignSelf: 'stretch'
   }
 });
